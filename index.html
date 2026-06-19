@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family</title>
+<script data-goatcounter="https://steffenhuck.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #ece0e0;        /* faint, dusty oxblood — blood drained out */
+    --ground-deep: #e4d3d4;   /* a hair deeper, for subtle depth */
+    --ink: #3a2326;           /* dark brown-burgundy, near-black, readable */
+    --oxblood: #6e2b2f;       /* saturated oxblood — title, speaker tags */
+    --muted: #8a5a5d;         /* faded oxblood — subtitle, cast, directions */
+    --rule: #d4bcbe;          /* hairline in the red family */
+    --tree: #c9aeb0;          /* watermark lattice — barely above ground */
+    --measure: 38rem;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: 1.26rem;
+    line-height: 1.62;
+    padding: 4.5rem 1.25rem 6rem;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- The watermark family tree ---- */
+  .tree-bg {
+    position: fixed;
+    top: 8.2rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .tree-bg svg { width: 100%; height: 100%; }
+
+  .page {
+    max-width: var(--measure);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Title block ---- */
+  .title {
+    font-family: "EB Garamond", serif;
+    font-weight: 600;
+    font-size: clamp(3.4rem, 13vw, 5.2rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--oxblood);
+    margin: 0 0 0.5rem;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin: 1.4rem 0 3rem;
+  }
+
+  /* ---- Cast ---- */
+  .cast {
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.9;
+    margin: 0 0 3rem;
+  }
+  .cast .lbl {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+
+  /* ---- Speaker tags ---- */
+  .speaker {
+    font-size: 0.92rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    font-weight: 600;
+    margin: 1.7rem 0 0.3rem;
+  }
+
+  /* ---- Speech ---- */
+  .speech { margin: 0 0 0.2rem; }
+
+  /* ---- Stage directions ---- */
+  .stage {
+    font-style: italic;
+    color: var(--muted);
+    margin: 0 0 1.4rem;
+    padding-left: 1.3rem;
+  }
+  .stage.opening { margin-top: 0; }
+  .stage + .speaker { margin-top: 0.3rem; }
+
+  /* ---- Footer ---- */
+  .colophon {
+    margin-top: 4rem;
+    padding-top: 1.6rem;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  .colophon a {
+    color: var(--oxblood);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .colophon a:hover, .colophon a:focus { color: var(--ink); }
+
+  ::selection { background: var(--oxblood); color: var(--ground); }
+</style>
+</head>
+<body>
+
+  <!-- Faint abstract family tree: the real topology, nameless, ghosted.
+       Central descending spine (Habsburg blood, solid lines) with two
+       marriage-grafts at the outer edges (dotted) — those two are, in
+       truth, Napoleon and Sissi: both attached, neither blood. -->
+  <div class="tree-bg" aria-hidden="true">
+    <svg viewBox="0 0 800 1100" preserveAspectRatio="xMidYMin slice" fill="none"
+         stroke="#dcc8ca" stroke-width="1.1">
+      <!-- top node (Francis I) -->
+      <circle cx="400" cy="120" r="11"/>
+      <!-- descent to the two children -->
+      <path d="M400 131 V 175 M250 175 H 550 M250 175 V 220 M550 175 V 220"/>
+      <!-- left child node (Marie Louise) -->
+      <circle cx="250" cy="232" r="11"/>
+      <!-- right child node (Franz Karl) -->
+      <circle cx="550" cy="232" r="11"/>
+      <!-- marriage graft on the left: Marie Louise ⚭ NAPOLEON (dotted, an in-law) -->
+      <path d="M261 232 H 360" stroke-dasharray="3 7"/>
+      <circle cx="372" cy="232" r="11" stroke-dasharray="3 6"/>
+      <!-- descent from Franz Karl to Franz Joseph -->
+      <path d="M550 243 V 330"/>
+      <circle cx="550" cy="342" r="11"/>
+      <!-- marriage graft on the right: Franz Joseph ⚭ SISSI (dotted, an in-law) -->
+      <path d="M561 342 H 660" stroke-dasharray="3 7"/>
+      <circle cx="672" cy="342" r="11" stroke-dasharray="3 6"/>
+
+      <!-- a second, fainter generation continuing down, to give the lattice depth -->
+      <path d="M550 353 V 430 M430 430 H 670 M430 430 V 470 M670 430 V 470"/>
+      <circle cx="430" cy="482" r="9"/>
+      <circle cx="670" cy="482" r="9"/>
+      <path d="M430 491 V 560 M340 560 H 520 M340 560 V 595 M520 560 V 595"/>
+      <circle cx="340" cy="606" r="9"/>
+      <circle cx="520" cy="606" r="9"/>
+      <path d="M520 615 V 690"/>
+      <circle cx="520" cy="702" r="9"/>
+      <path d="M531 702 H 610" stroke-dasharray="3 7"/>
+      <circle cx="622" cy="702" r="9" stroke-dasharray="3 6"/>
+
+      <!-- a sparse upper branch for breadth -->
+      <path d="M250 243 V 300"/>
+      <circle cx="250" cy="312" r="9"/>
+      <path d="M250 321 V 380 M170 380 H 330 M170 380 V 415 M330 380 V 415"/>
+      <circle cx="170" cy="427" r="8"/>
+      <circle cx="330" cy="427" r="8"/>
+    </svg>
+  </div>
+
+  <main class="page">
+
+    <h1 class="title">Family</h1>
+    <p class="subtitle">A&nbsp;Play</p>
+
+    <p class="cast">
+      <span class="lbl">Cast</span>
+      Sissi · Napoleon
+    </p>
+
+    <p class="stage opening">(The lawn before the Institute. Afternoon. Napoleon lies on a sun lounger, looking at the lake. Sissi approaches across the grass.)</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">Hello, great-uncle.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Hello, my niece! You look just like the young Romy Schneider.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">Ha ha. You are funny.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Sometimes I can be. But tell me. What brings you here?</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">I was summoned.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">By her?</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">By her.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">She has good taste.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">I didn't expect to find you here.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">She has good taste.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">You are really funny. We should do a TikTok.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Let's. But tell me first what you did all these years.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">I think I was asleep.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Sleep is good.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">Yes, but being awake is better!</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">I used to be awake twenty hours every day.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">That's a lot! So you have to do some catching up?</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">I think I'm pretty much done with it. And seeing you I feel more awake than ever.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">That could be the theme for our TikTok.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Should we also talk history in it?</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">You mean like you made my husband's empire at Austerlitz?</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Sissi, you can read my mind!</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">I did do some reading.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Good for you.</p>
+
+    <p class="stage">(A beat.)</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">Good for us.</p>
+
+    <p class="speaker">Sissi</p>
+    <p class="speech">We are family.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="speech">We are.</p>
+
+    <footer class="colophon">
+      <a href="https://steffenhuck.github.io/">steffen huck</a>
+    </footer>
+
+  </main>
+</body>
+</html>
